@@ -1,0 +1,23 @@
+[build-system]
+requires = ["wheel", "setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sw360_spdx_uploader"
+dynamic = ["version"]
+description = "sw360 tools for spdx upload"
+readme = "README.md"
+authors = [{name = "Keiya Nobuta", email = "nobuta.keiay@fujitsu.com"}]
+requires-python=">=3.8"
+license = "MIT"
+license-files = ["LICENSE"]
+
+dependencies = [
+    "click",
+    "spdx-tools",
+    "license-expression",
+    "sw360",
+]
+
+[project.scripts]
+sw360-cli = "sw360_cli.cli:cli"
