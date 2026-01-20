@@ -114,7 +114,7 @@ def _bulk_add_licenses(sw360_client, licenses):
     license_list = []
 
     for license in licenses:
-        license_name = license['short_name']
+        license_name = str(license['short_name'])
         if not license_name or license_name.lower() in ('noassertion', 'none'):
             continue
 
