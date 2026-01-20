@@ -92,7 +92,7 @@ def _create_license(sw360_client, short_name, full_name=None, extracted_text=Non
     resp = sw360_client.create_new_license(
         shortName = short_name,
         fullName = full_name,
-        text = text,
+        text = extrated_text,
         checked = checked,
     )
 
