@@ -75,7 +75,7 @@ def _create_component(sw360_client, name, description='', type='INTERNAL', homep
 
     return component
 
-def _create_license(sw360_client, short_name, full_name=None, text=None, checked: bool = False):
+def _create_license(sw360_client, short_name, full_name=None, extracted_text=None, checked: bool = False, *args, **kwds):
     '''
     Create new license
     '''
@@ -244,7 +244,7 @@ def __spdx_package_cpe(package):
 def _spdx_license(spdxdata, license_ref):
     from dataclasses import asdict
 
-    license_info = next((lic for lic in spdxdata.extracted_licensing_info if lic.license_id), None)
+    license_info = next((lic for lic in spdxdata.extracted_licensing_info if lic.license_id == license_ref), None)
     return license_info
 
 def _spdx_licenses(spdxdata, license_exp):
