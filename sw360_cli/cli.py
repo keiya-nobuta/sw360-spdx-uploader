@@ -90,10 +90,10 @@ def _create_license(sw360_client, short_name, full_name=None, extracted_text=Non
         full_name = short_name
 
     resp = sw360_client.create_new_license(
-        shortName = short_name,
-        fullName = full_name,
-        text = extracted_text,
-        checked = checked,
+        shortName = str(short_name),
+        fullName = str(full_name),
+        text = str(extracted_text),
+        checked = bool(checked),
     )
 
     return resp
@@ -115,6 +115,9 @@ def _bulk_add_licenses(sw360_client, licenses):
 
     for license in licenses:
         license_name = license['short_name']
+        if not license_name or license_name.lower() in ('noassertion', 'none'):
+            continue
+
         exist_license = _get_license(sw360_client, license_name)
         if not exist_license:
             try:
