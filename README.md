@@ -39,3 +39,5 @@ upload spdx example:
 ```
 SW360_URL='your-server-url' SW360_SECRET='your-api-token' sw360-cli upload-spdx --name 'test project' --version '0.0.1-test' sbom.spdx
 ```
+
+
